@@ -6,26 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://CaptainLiao.github.io">
-  <title>wxss引用外部CSS文件及iconfont | Fayin</title>
+  <title>Tag: gulp | Fayin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小程序引入外部文件的方式是：@import “/.wxss”; 因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：">
-<meta name="keywords" content="微信小程序">
-<meta property="og:type" content="article">
-<meta property="og:title" content="wxss引用外部CSS文件及iconfont">
-<meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/wxss引用外部CSS文件及iconfont/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Fayin">
+<meta property="og:url" content="http://CaptainLiao.github.io/tags/gulp/index.html">
 <meta property="og:site_name" content="Fayin">
-<meta property="og:description" content="小程序引入外部文件的方式是：@import “/.wxss”; 因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/1.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/2.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/3.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/4.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/5.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/6.png">
-<meta property="og:updated_time" content="2017-04-22T07:46:41.207Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wxss引用外部CSS文件及iconfont">
-<meta name="twitter:description" content="小程序引入外部文件的方式是：@import “/.wxss”; 因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：">
-<meta name="twitter:image" content="http://captainliao.github.io/img/引入外部css/1.png">
+<meta name="twitter:title" content="Fayin">
   
     <link rel="alternative" href="/atom.xml" title="Fayin" type="application/atom+xml">
   
@@ -147,206 +135,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-wxss引用外部CSS文件及iconfont" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      wxss引用外部CSS文件及iconfont
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/04/22/2017-4-22/gulp 搭建个人工作流：文件注入、热启动、跨域/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:57:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/22/2017-4-22/gulp 搭建个人工作流：文件注入、热启动、跨域/">gulp 搭建个人工作流：文件注入、热启动、跨域</a>
     </h1>
   
 
-        
-        <a href="/2017/04/22/wxss引用外部CSS文件及iconfont/" class="archive-article-date">
-  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>小程序引入外部文件的方式是：@import “<em>/</em>.wxss”;</p>
-<p>因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;font-family: &quot;iconfont&quot;;</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767&apos;); /* IE9*/</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */</div><div class="line">  url(&apos;iconfont.woff?t=1485242349767&apos;) format(&apos;woff&apos;), /* chrome, firefox */</div><div class="line">  url(&apos;iconfont.ttf?t=1485242349767&apos;) format(&apos;truetype&apos;), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/</div><div class="line">  url(&apos;iconfont.svg?t=1485242349767#iconfont&apos;) format(&apos;svg&apos;); /* iOS 4.1- */</div><div class="line">&#125;</div><div class="line"></div><div class="line">.iconfont &#123;</div><div class="line">  font-family:&quot;iconfont&quot; !important;</div><div class="line">  font-size:16px;</div><div class="line">  font-style:normal;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>因为此段css样式是通用的，就把它放在了lib/style/font.wxss中，此时文件目录如下：</p>
-<p><img src="/img/引入外部css/1.png" alt=""></p>
-<p>通过@import 的方式引入到需要用到的文件里，但是并没有效果。</p>
-<p>原因：小程序的wxss文件font-face的url不接受http地址作为参数,可以接受base64,因此可以先将字体文件下载后,转换为base64，然后引用。</p>
-<p>解决方案如下：</p>
-<p>一、先到阿里巴巴矢量图标库(<a href="http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件" target="_blank" rel="external">http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件</a></p>
-<p><img src="/img/引入外部css/2.png" alt=""></p>
-<p>二、到这个平台<a href="https://transfonter.org/，把字体文件转化成base64格式" target="_blank" rel="external">https://transfonter.org/，把字体文件转化成base64格式</a></p>
-<p><img src="/img/引入外部css/3.png" alt=""></p>
-<p>三、在lib文件中引入</p>
-<p><img src="/img/引入外部css/4.png" alt=""></p>
-<p>四、在wxss加入字体</p>
-<p><img src="/img/引入外部css/5.png" alt=""></p>
-<p>五、显示效果</p>
-<p><img src="/img/引入外部css/6.png" alt=""></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gulp</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://CaptainLiao.github.io/2017/04/22/wxss引用外部CSS文件及iconfont/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/04/22/函数创建和重载/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/04/22/事件代理和事件委托/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">wxss引用外部CSS文件及iconfont</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="wxss引用外部CSS文件及iconfont" data-title="wxss引用外部CSS文件及iconfont" data-url="http://CaptainLiao.github.io/2017/04/22/wxss引用外部CSS文件及iconfont/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://CaptainLiao.github.io/2017/04/22/wxss引用外部CSS文件及iconfont/", 
-    sourceId: "wxss引用外部CSS文件及iconfont",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -369,9 +211,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

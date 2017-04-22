@@ -6,26 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://CaptainLiao.github.io">
-  <title>wxss引用外部CSS文件及iconfont | Fayin</title>
+  <title>完美解决 JS 返回上一页并刷新，但不用重新加载页面 | Fayin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小程序引入外部文件的方式是：@import “/.wxss”; 因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：">
-<meta name="keywords" content="微信小程序">
+  <meta name="description" content="完美解决 JS 返回上一页并刷新，但不用重新加载页面需求有三个页面A、B、C，点击A=&amp;gt;B，点击B=&amp;gt;C，在C中添加内容，点击确定返回到B，此时B页面需展示在C中添加的内容，同时，点击B页面的返回按钮需返回到A。（当然，A、B、C中都有返回按钮可以返回到之前的页面）">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wxss引用外部CSS文件及iconfont">
-<meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/wxss引用外部CSS文件及iconfont/index.html">
+<meta property="og:title" content="完美解决 JS 返回上一页并刷新，但不用重新加载页面">
+<meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/index.html">
 <meta property="og:site_name" content="Fayin">
-<meta property="og:description" content="小程序引入外部文件的方式是：@import “/.wxss”; 因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/1.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/2.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/3.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/4.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/5.png">
-<meta property="og:image" content="http://captainliao.github.io/img/引入外部css/6.png">
-<meta property="og:updated_time" content="2017-04-22T07:46:41.207Z">
+<meta property="og:description" content="完美解决 JS 返回上一页并刷新，但不用重新加载页面需求有三个页面A、B、C，点击A=&amp;gt;B，点击B=&amp;gt;C，在C中添加内容，点击确定返回到B，此时B页面需展示在C中添加的内容，同时，点击B页面的返回按钮需返回到A。（当然，A、B、C中都有返回按钮可以返回到之前的页面）">
+<meta property="og:image" content="http://captainliao.github.io/img/1.png">
+<meta property="og:updated_time" content="2017-04-22T07:51:23.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wxss引用外部CSS文件及iconfont">
-<meta name="twitter:description" content="小程序引入外部文件的方式是：@import “/.wxss”; 因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：">
-<meta name="twitter:image" content="http://captainliao.github.io/img/引入外部css/1.png">
+<meta name="twitter:title" content="完美解决 JS 返回上一页并刷新，但不用重新加载页面">
+<meta name="twitter:description" content="完美解决 JS 返回上一页并刷新，但不用重新加载页面需求有三个页面A、B、C，点击A=&amp;gt;B，点击B=&amp;gt;C，在C中添加内容，点击确定返回到B，此时B页面需展示在C中添加的内容，同时，点击B页面的返回按钮需返回到A。（当然，A、B、C中都有返回按钮可以返回到之前的页面）">
+<meta name="twitter:image" content="http://captainliao.github.io/img/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Fayin" type="application/atom+xml">
   
@@ -147,43 +142,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-wxss引用外部CSS文件及iconfont" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-完美解决-JS-返回上一页并刷新，但不用重新加载页面" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      wxss引用外部CSS文件及iconfont
+      完美解决 JS 返回上一页并刷新，但不用重新加载页面
     </h1>
   
 
         
-        <a href="/2017/04/22/wxss引用外部CSS文件及iconfont/" class="archive-article-date">
-  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+        <a href="/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:47:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>小程序引入外部文件的方式是：@import “<em>/</em>.wxss”;</p>
-<p>因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;font-family: &quot;iconfont&quot;;</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767&apos;); /* IE9*/</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */</div><div class="line">  url(&apos;iconfont.woff?t=1485242349767&apos;) format(&apos;woff&apos;), /* chrome, firefox */</div><div class="line">  url(&apos;iconfont.ttf?t=1485242349767&apos;) format(&apos;truetype&apos;), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/</div><div class="line">  url(&apos;iconfont.svg?t=1485242349767#iconfont&apos;) format(&apos;svg&apos;); /* iOS 4.1- */</div><div class="line">&#125;</div><div class="line"></div><div class="line">.iconfont &#123;</div><div class="line">  font-family:&quot;iconfont&quot; !important;</div><div class="line">  font-size:16px;</div><div class="line">  font-style:normal;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>因为此段css样式是通用的，就把它放在了lib/style/font.wxss中，此时文件目录如下：</p>
-<p><img src="/img/引入外部css/1.png" alt=""></p>
-<p>通过@import 的方式引入到需要用到的文件里，但是并没有效果。</p>
-<p>原因：小程序的wxss文件font-face的url不接受http地址作为参数,可以接受base64,因此可以先将字体文件下载后,转换为base64，然后引用。</p>
-<p>解决方案如下：</p>
-<p>一、先到阿里巴巴矢量图标库(<a href="http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件" target="_blank" rel="external">http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件</a></p>
-<p><img src="/img/引入外部css/2.png" alt=""></p>
-<p>二、到这个平台<a href="https://transfonter.org/，把字体文件转化成base64格式" target="_blank" rel="external">https://transfonter.org/，把字体文件转化成base64格式</a></p>
-<p><img src="/img/引入外部css/3.png" alt=""></p>
-<p>三、在lib文件中引入</p>
-<p><img src="/img/引入外部css/4.png" alt=""></p>
-<p>四、在wxss加入字体</p>
-<p><img src="/img/引入外部css/5.png" alt=""></p>
-<p>五、显示效果</p>
-<p><img src="/img/引入外部css/6.png" alt=""></p>
+        <h2 id="完美解决-JS-返回上一页并刷新，但不用重新加载页面"><a href="#完美解决-JS-返回上一页并刷新，但不用重新加载页面" class="headerlink" title="完美解决 JS 返回上一页并刷新，但不用重新加载页面"></a>完美解决 JS 返回上一页并刷新，但不用重新加载页面</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>有三个页面A、B、C，点击A=&gt;B，点击B=&gt;C，在C中添加内容，点击确定返回到B，此时B页面需展示在C中添加的内容，同时，点击B页面的返回按钮需返回到A。（当然，A、B、C中都有返回按钮可以返回到之前的页面）<br><a id="more"></a></p>
+<h3 id="分析需求"><a href="#分析需求" class="headerlink" title="分析需求"></a>分析需求</h3><p>显然，此需求有两个功能：<br>页面中的返回上一页功能<br>C中添加内容，返回B后刷新页面，同时保证B页面返回功能的正常使用</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>针对第一个问题，我们很容易想到history.back()或者history.go(-1)</p>
+<p>难点在第二个问题，最开始我是这样解决的：loacation.href = document.referrer，此时，B页面内容正确显示，但点击返回按钮却到了C。</p>
+<p>分析原因，原来是loacation.href相当于重新加载了一次B页面，那么当前B页面的上一页自然就是C了。</p>
+<p>有没有办法使得B页面不重新加载，但更新内容呢？</p>
+<p>使用Ajax！！！浏览器加载页面后，会缓存HTML，每次加载页面都会执行一遍JS</p>
+<p>1、C 页面点击确定后使用history.go(-1)，返回到B页面</p>
+<p>2、在 B 页面通过$.ajax()获取内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var xhr = $.ajax(&#123;</div><div class="line">  type: &apos;GET&apos;,</div><div class="line">  url: &apos;/api/xxx/xx&apos;,</div><div class="line">  timeout: 5000,</div><div class="line">  dataType: &apos;json&apos;,</div><div class="line">  beforeSend: function(XHR)&#123;</div><div class="line">    // todo</div><div class="line">  &#125;,</div><div class="line">  success: function(json)&#123;</div><div class="line">    //</div><div class="line">  &#125;,</div><div class="line">  error: function()&#123;&#125;,</div><div class="line">  complete: function(xhr,status)&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>3、重点，使用自执行函数渲染页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function B()&#123;&#125;;</div><div class="line">    B.prototype.getData()&#123;</div><div class="line">      var xhr = $.ajax(&#123;...&#125;)</div><div class="line">    &#125;;</div><div class="line">    B.prototype.renderPage()&#123;</div><div class="line">      this.getDate();</div><div class="line">      // render...</div><div class="line">    &#125;;</div><div class="line">    !function(window)&#123;</div><div class="line">      var b = new B();</div><div class="line">      b.renderPage();</div><div class="line">    &#125;(window)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>这下应该成了吧。NO! C点击确定后返回到B，B内容依然没有更新。。。</p>
+<p>这是为什么呢？</p>
+<p>百度搜索无果，情急之下只有求救大神</p>
+<p>大神说，可能是GET请求发出后，由于URL没有变化，浏览器可能会从缓存中读取数据而导致内容更新失败。</p>
+<ul>
+<li><p>使用POST请求，强制从服务器获取数据</p>
+</li>
+<li><p>仍然使用GET，改变当前页面的url，方法是在url末尾添加一段随机字符串</p>
+</li>
+</ul>
+<p>两种方法都能实现需求，这里再说说方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var xhr = $.ajax(&#123;</div><div class="line">  type: &apos;GET&apos;,</div><div class="line">  url: &apos;/api/xxx/xx&apos;,</div><div class="line">  timeout: 5000,</div><div class="line">  dataType: &apos;json&apos;,</div><div class="line">  data: &#123;flag: new Data().getTime().toString(36)&#125;, // 在GET方法内添加一个任意key，随机字符串改变</div><div class="line">  beforeSend: function(XHR)&#123;</div><div class="line">    // todo</div><div class="line">  &#125;,</div><div class="line">  success: function(json)&#123;</div><div class="line">    //</div><div class="line">  &#125;,</div><div class="line">  error: function()&#123;&#125;,</div><div class="line">  complete: function(xhr,status)&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><img src="/img/1.png" alt=""></p>
 
       
 
@@ -218,7 +218,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
@@ -274,7 +274,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://CaptainLiao.github.io/2017/04/22/wxss引用外部CSS文件及iconfont/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://CaptainLiao.github.io/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +288,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/22/函数创建和重载/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/22/快速搭建微信小程序开发环境/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          wxss引用外部CSS文件及iconfont
         
       </div>
     </a>
   
   
-    <a href="/2017/04/22/事件代理和事件委托/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">wxss引用外部CSS文件及iconfont</div>
+    <a href="/2017/04/22/vue-js-获取当前自定义属性值/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue.js 获取当前自定义属性值</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +312,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="wxss引用外部CSS文件及iconfont" data-title="wxss引用外部CSS文件及iconfont" data-url="http://CaptainLiao.github.io/2017/04/22/wxss引用外部CSS文件及iconfont/"></div>
+	<div class="ds-thread" data-thread-key="完美解决-JS-返回上一页并刷新，但不用重新加载页面" data-title="完美解决 JS 返回上一页并刷新，但不用重新加载页面" data-url="http://CaptainLiao.github.io/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -335,8 +335,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://CaptainLiao.github.io/2017/04/22/wxss引用外部CSS文件及iconfont/", 
-    sourceId: "wxss引用外部CSS文件及iconfont",
+    url: "http://CaptainLiao.github.io/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/", 
+    sourceId: "完美解决-JS-返回上一页并刷新，但不用重新加载页面",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

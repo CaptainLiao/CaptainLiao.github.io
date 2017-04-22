@@ -137,6 +137,266 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2017-4-22/gulp 搭建个人工作流：文件注入、热启动、跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/2017-4-22/gulp 搭建个人工作流：文件注入、热启动、跨域/">gulp 搭建个人工作流：文件注入、热启动、跨域</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/22/2017-4-22/gulp 搭建个人工作流：文件注入、热启动、跨域/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:57:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>个人比价推崇前后端分离的开发方式，大家伙各司其职，只需通过 API 进行交流，不仅避免了沟通上的成本，更提升了开发效率。而在前端开发工作中，许多需求和问题是相似的，所以我们的开发模式往往是雷同的，是否能够总结出一套通用的模式呢？<br>
+        
+          <a class="article-more-a" href="/2017/04/22/2017-4-22/gulp 搭建个人工作流：文件注入、热启动、跨域/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gulp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/22/2017-4-22/gulp 搭建个人工作流：文件注入、热启动、跨域/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-使用vuex-解决模块间传值问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/使用vuex-解决模块间传值问题/">使用vuex 解决模块间传值问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/22/使用vuex-解决模块间传值问题/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>二月的第四个周末，在家。受寒流的影响，深圳天气持续冰冻了好几天，天冷人就变得懒动，迷迷糊糊睡到了快十点，终于在饥饿的催促下起床。</p>
+<p>和妹子吃完粥后，百无聊赖。透过窗户，发现太阳依旧没有露头的打算，我们也就失去了外出的兴致。</p>
+<p>在看电影、打Dota、撸代码间来回，犹豫不决，终于还是下决心继续学习VUE。<br>仿照 conde.js 官网写的一个demo，目前已经基本可用，但始终缺少登录页，没有用户权限管理，于是开撸……<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;login&quot;&gt;</div><div class="line">    &lt;c-header&gt;&lt;/c-header&gt;</div><div class="line">    &lt;c-form&gt;&lt;/c-form&gt;</div><div class="line">    &lt;p class=&quot;content-block&quot;&gt;&lt;a href=&quot;javascript:;&quot; @click=showState class=&quot;button button-fill button-success&quot;&gt;登录&lt;/a&gt;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure></p>
+<p>外观大概是这样的：</p>
+<p><img src="/img/2.png" alt=""></p>
+<p>两个输入项通过 c-form 组件导入</p>
+<p>由于没有登录接口调用，初步想法是：点击登录，将c-from组件输入的值（用户名和密码）保存在 sessionStorage 中，通过判断 sessionStorage 是否保存了用户信息，来决定用户的操作权限。</p>
+<p>现在问题来了——点击登录，如何取得 c-form 组件中的输入值？</p>
+<p>最直接的想法就是通过子组件派生事件，父组件监听触发。转念一想，何不使用vuex来进行管理呢？正好之前从来没有认真对待过它。</p>
+<p>LOL……</p>
+<p>坑坑坑，我踩踩踩</p>
+<p>终于，总结出使用 vuex 的三大步骤：</p>
+<p>步骤1：安装和创建</p>
+<p>安装 vuex：npm i vuex –save</p>
+<p>创建 store.js，把基本格式写好：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import Vuex from &apos;vuex&apos;</div><div class="line">// 首先声明一个状态 state</div><div class="line">const state = &#123;</div><div class="line">   msg: &apos;&apos;</div><div class="line">&#125;</div><div class="line">// 然后给 actions 注册一个事件处理函数，当这个函数被触发时，将状态提交到 mutaions中处理</div><div class="line">const actions = &#123;</div><div class="line">   saveName(&#123;commit&#125;, msg) &#123;</div><div class="line">       commit(&apos;saveMsg&apos;, msg)    // 提交到mutations中处理    </div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line">// 更新状态</div><div class="line">const mutations = &#123;</div><div class="line">    saveMsg(state, msg) &#123;</div><div class="line">       state.msg = msg;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line">// 获取状态信息</div><div class="line">const getter = &#123;</div><div class="line">   showState(state) &#123;</div><div class="line">       console.log(state.msg)</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">// 下面这个相当关键了，所有模块，记住是所有，注册才能使用</div><div class="line">export default new Vuex.Store&#123;</div><div class="line">   state,</div><div class="line">   getter,</div><div class="line">   mutations,</div><div class="line">   actions</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>步骤2：在子组件中使用（保存输入）</p>
+<p>具体到我这里，是在c-form中使用它：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;input type=&quot;text&quot; @blur=saveName(username) v-model=&quot;username&quot; placeholder=&quot;Your name&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">  // 引入mapActions，很重要</div><div class="line">  import &#123; mapActions &#125; from &apos;vuex&apos;</div><div class="line">  export default &#123;</div><div class="line">    data() &#123;</div><div class="line">      return &#123;</div><div class="line">        username:&apos;&apos;,</div><div class="line">        password: &apos;&apos;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    methods: &#123;</div><div class="line">      ...mapActions(&#123;</div><div class="line">        // 在input 的blur 事件中触发回调，并将输入值作为参数返回到store中</div><div class="line">        saveName: &apos;saveName&apos; </div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>步骤3：获取在步骤2 中的输入值（获取state）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;login&quot;&gt;</div><div class="line">    &lt;c-header&gt;&lt;/c-header&gt;</div><div class="line">    &lt;c-form&gt;&lt;/c-form&gt;</div><div class="line">    &lt;p class=&quot;content-block&quot;&gt;&lt;a href=&quot;javascript:;&quot; @click=showState class=&quot;button button-fill button-success&quot;&gt;登录&lt;/a&gt;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">// 引入mapGtters，很重要</div><div class="line">import &#123; mapGetters &#125; from &apos;vuex&apos;</div><div class="line">  export default &#123;</div><div class="line">    methods: &#123;</div><div class="line">      ...mapGetters([</div><div class="line">        // 在store.js 中注册的getters</div><div class="line">        &apos;showState&apos;</div><div class="line">      ])</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">      &quot;c-form&quot;: require(&apos;../components/form.vue&apos;),</div><div class="line">      &quot;c-header&quot;: require(&apos;../components/header.vue&apos;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>至此，我们就能得到输入值了。<br><img src="/img/3.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/22/使用vuex-解决模块间传值问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-vue-js-获取当前自定义属性值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/vue-js-获取当前自定义属性值/">vue.js 获取当前自定义属性值</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/22/vue-js-获取当前自定义属性值/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:52:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>假设有一个标签h5, 我们给它添加了一个自定义属性值，（item.id是从动态添加的）<br>点击h5 标签，如何才能获取当前对应的自定义属性值呢？<br>想当然的我最开始这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;h5 class=&quot;left t-title&quot; @click=&apos;getDataId&apos; :data-id=&quot;item.id&quot;&gt;&lt;/h5&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">    methods: &#123;</div><div class="line">        getDataId() &#123;</div><div class="line">            console.log(this.data-id);</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">    </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>显然，这样是拿不到 data-id的值的。。。。</p>
+<p>应该这样做：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;h5 class=&quot;left t-title&quot; @click=&apos;getDataId(item.id)&apos; :data-id=&quot;item.id&quot;&gt;&lt;/h5&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">    methods: &#123;</div><div class="line">        getDataId(id) &#123;</div><div class="line">            console.log(id);</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">    </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/22/vue-js-获取当前自定义属性值/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-完美解决-JS-返回上一页并刷新，但不用重新加载页面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/">完美解决 JS 返回上一页并刷新，但不用重新加载页面</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:47:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="完美解决-JS-返回上一页并刷新，但不用重新加载页面"><a href="#完美解决-JS-返回上一页并刷新，但不用重新加载页面" class="headerlink" title="完美解决 JS 返回上一页并刷新，但不用重新加载页面"></a>完美解决 JS 返回上一页并刷新，但不用重新加载页面</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>有三个页面A、B、C，点击A=&gt;B，点击B=&gt;C，在C中添加内容，点击确定返回到B，此时B页面需展示在C中添加的内容，同时，点击B页面的返回按钮需返回到A。（当然，A、B、C中都有返回按钮可以返回到之前的页面）<br>
+        
+          <a class="article-more-a" href="/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/22/完美解决-JS-返回上一页并刷新，但不用重新加载页面/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-wxss引用外部CSS文件及iconfont" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -158,23 +418,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>小程序引入外部文件的方式是：@import “<em>/</em>.wxss”;</p>
-<p>因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;font-family: &quot;iconfont&quot;;</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767&apos;); /* IE9*/</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */</div><div class="line">  url(&apos;iconfont.woff?t=1485242349767&apos;) format(&apos;woff&apos;), /* chrome, firefox */</div><div class="line">  url(&apos;iconfont.ttf?t=1485242349767&apos;) format(&apos;truetype&apos;), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/</div><div class="line">  url(&apos;iconfont.svg?t=1485242349767#iconfont&apos;) format(&apos;svg&apos;); /* iOS 4.1- */</div><div class="line">&#125;</div><div class="line"></div><div class="line">.iconfont &#123;</div><div class="line">  font-family:&quot;iconfont&quot; !important;</div><div class="line">  font-size:16px;</div><div class="line">  font-style:normal;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>因为此段css样式是通用的，就把它放在了lib/style/font.wxss中，此时文件目录如下：</p>
-<p><img src="/img/引入外部css/1.png" alt=""></p>
-<p>通过@import 的方式引入到需要用到的文件里，但是并没有效果。</p>
-<p>原因：小程序的wxss文件font-face的url不接受http地址作为参数,可以接受base64,因此可以先将字体文件下载后,转换为base64，然后引用。</p>
-<p>解决方案如下：</p>
-<p>一、先到阿里巴巴矢量图标库(<a href="http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件" target="_blank" rel="external">http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件</a></p>
-<p><img src="/img/引入外部css/2.png" alt=""></p>
-<p>二、到这个平台<a href="https://transfonter.org/，把字体文件转化成base64格式" target="_blank" rel="external">https://transfonter.org/，把字体文件转化成base64格式</a></p>
-<p><img src="/img/引入外部css/3.png" alt=""></p>
-<p>三、在lib文件中引入</p>
-<p><img src="/img/引入外部css/4.png" alt=""></p>
-<p>四、在wxss加入字体</p>
-<p><img src="/img/引入外部css/5.png" alt=""></p>
-<p>五、显示效果</p>
-<p><img src="/img/引入外部css/6.png" alt=""></p>
-
+<p>因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：<br>
+        
+          <a class="article-more-a" href="/2017/04/22/wxss引用外部CSS文件及iconfont/#more">more >></a>
+        
       
 
       
