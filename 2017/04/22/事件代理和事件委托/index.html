@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://CaptainLiao.github.io">
   <title>Fayin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##事件代理/事件委托（event delegation） 需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件… 我们：怎么办呢？ 事件委托：我可以！使用我能让你避免对特定的每个节点添加事件监听器。 我们：你到底是什么鬼？  事件委托：我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原">
+  <meta name="description" content="事件代理/事件委托（event delegation）需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fayin">
 <meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/事件代理和事件委托/index.html">
 <meta property="og:site_name" content="Fayin">
-<meta property="og:description" content="##事件代理/事件委托（event delegation） 需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件… 我们：怎么办呢？ 事件委托：我可以！使用我能让你避免对特定的每个节点添加事件监听器。 我们：你到底是什么鬼？  事件委托：我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原">
-<meta property="og:updated_time" content="2017-04-22T07:25:03.114Z">
+<meta property="og:description" content="事件代理/事件委托（event delegation）需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…">
+<meta property="og:updated_time" content="2017-04-22T07:33:48.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fayin">
-<meta name="twitter:description" content="##事件代理/事件委托（event delegation） 需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件… 我们：怎么办呢？ 事件委托：我可以！使用我能让你避免对特定的每个节点添加事件监听器。 我们：你到底是什么鬼？  事件委托：我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原">
+<meta name="twitter:description" content="事件代理/事件委托（event delegation）需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…">
   
     <link rel="alternative" href="/atom.xml" title="Fayin" type="application/atom+xml">
   
@@ -145,10 +145,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##事件代理/事件委托（event delegation）</p>
-<p><strong>需求一：</strong>当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦…</p>
-<p><strong>需求二：</strong>在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…</p>
-<p><strong>我们：</strong>怎么办呢？</p>
+        <h2 id="事件代理-事件委托（event-delegation）"><a href="#事件代理-事件委托（event-delegation）" class="headerlink" title="事件代理/事件委托（event delegation）"></a>事件代理/事件委托（event delegation）</h2><p><strong>需求一：</strong>当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦…</p>
+<p><strong>需求二：</strong>在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…<br><a id="more"></a><br><strong>我们：</strong>怎么办呢？</p>
 <p><strong>事件委托：</strong>我可以！使用我能让你避免对特定的每个节点添加事件监听器。</p>
 <p><strong>我们：</strong>你到底是什么鬼？ </p>
 <p><strong>事件委托：</strong>我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原理，将事件监听器添加到特定节点的父元素上，我就会分析从子元素冒泡上来的事件，找到是哪个子元素的事件。</p>

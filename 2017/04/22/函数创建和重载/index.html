@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://CaptainLiao.github.io">
   <title>Fayin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。 123456function throttle2(method, context) &amp;#123;    clearTimeout(method.tId);    method.tId = setTimeout(functi">
+  <meta name="description" content="函数的创建和重载今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fayin">
 <meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/函数创建和重载/index.html">
 <meta property="og:site_name" content="Fayin">
-<meta property="og:description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。 123456function throttle2(method, context) &amp;#123;    clearTimeout(method.tId);    method.tId = setTimeout(functi">
-<meta property="og:updated_time" content="2017-04-22T07:22:24.628Z">
+<meta property="og:description" content="函数的创建和重载今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。">
+<meta property="og:updated_time" content="2017-04-22T07:35:17.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fayin">
-<meta name="twitter:description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。 123456function throttle2(method, context) &amp;#123;    clearTimeout(method.tId);    method.tId = setTimeout(functi">
+<meta name="twitter:description" content="函数的创建和重载今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。">
   
     <link rel="alternative" href="/atom.xml" title="Fayin" type="application/atom+xml">
   
@@ -145,8 +145,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(method.tId);</div><div class="line">    method.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="函数的创建和重载"><a href="#函数的创建和重载" class="headerlink" title="函数的创建和重载"></a>函数的创建和重载</h2><p>今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(method.tId);</div><div class="line">    method.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>但在实际应用中，并不能达到想要效果–每次点击都会发送一次数据，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$(&quot;.daili_act_lia&quot;).click(function () &#123;</div><div class="line">    var checkbox = $(&quot;#s11&quot;),</div><div class="line">      options = &#123;&#125;,</div><div class="line">      isFocus = &apos;&apos;,</div><div class="line">         id = $(this).attr(&quot;data-id&quot;);</div><div class="line"></div><div class="line">             function throttle2(method, context) &#123;</div><div class="line">                 clearTimeout(method.tId);</div><div class="line">                 method.tId = setTimeout(function()&#123;</div><div class="line">                     method.call(context);</div><div class="line">                 &#125;, 1000);</div><div class="line">             &#125;</div><div class="line"></div><div class="line">             function myAjax() &#123;</div><div class="line">                 if(checkbox.prop(&quot;checked&quot;)) &#123;</div><div class="line">                     isFoucs = -1;</div><div class="line">                 &#125;else &#123;</div><div class="line">                     isFoucs = &apos;&apos;;</div><div class="line">                 &#125;</div><div class="line">                 options = &#123;</div><div class="line">                     focusId: id,</div><div class="line">                     tag: 2,</div><div class="line">                     focus: isFocus</div><div class="line">                 &#125;;</div><div class="line">                 console.log(options)</div><div class="line">                 function returnDate(json) &#123;</div><div class="line">                     console.log(json)</div><div class="line">                 &#125;</div><div class="line">                 Utils.getAjax(&quot;POST&quot;, CONFIG.API.editFocus, options, returnDate);</div><div class="line">             &#125;</div><div class="line">             throttle2(myAjax,this)</div><div class="line">         &#125;);</div></pre></td></tr></table></figure>
 <p>一直不明白为什么。。。</p>
@@ -246,15 +245,6 @@
 
   
 <nav id="article-nav">
-  
-    <a href="/2017/04/22/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hello World
-        
-      </div>
-    </a>
   
   
     <a href="/2017/04/22/事件代理和事件委托/" id="article-nav-older" class="article-nav-link-wrap">
