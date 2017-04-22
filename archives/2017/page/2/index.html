@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://CaptainLiao.github.io">
-  <title>函数的创建和重载 | Fayin</title>
+  <title>Archives: 2017 | Fayin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。">
-<meta name="keywords" content="jvascript">
-<meta property="og:type" content="article">
-<meta property="og:title" content="函数的创建和重载">
-<meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/函数创建和重载/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Fayin">
+<meta property="og:url" content="http://CaptainLiao.github.io/archives/2017/page/2/index.html">
 <meta property="og:site_name" content="Fayin">
-<meta property="og:description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。">
-<meta property="og:updated_time" content="2017-04-22T08:05:04.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数的创建和重载">
-<meta name="twitter:description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。">
+<meta name="twitter:title" content="Fayin">
   
     <link rel="alternative" href="/atom.xml" title="Fayin" type="application/atom+xml">
   
@@ -140,63 +135,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-函数创建和重载" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      函数的创建和重载
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/04/22/函数创建和重载/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/22/函数创建和重载/">函数的创建和重载</a>
     </h1>
   
 
-        
-        <a href="/2017/04/22/函数创建和重载/" class="archive-article-date">
-  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(method.tId);</div><div class="line">    method.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>但在实际应用中，并不能达到想要效果–每次点击都会发送一次数据，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$(&quot;.daili_act_lia&quot;).click(function () &#123;</div><div class="line">    var checkbox = $(&quot;#s11&quot;),</div><div class="line">      options = &#123;&#125;,</div><div class="line">      isFocus = &apos;&apos;,</div><div class="line">         id = $(this).attr(&quot;data-id&quot;);</div><div class="line"></div><div class="line">             function throttle2(method, context) &#123;</div><div class="line">                 clearTimeout(method.tId);</div><div class="line">                 method.tId = setTimeout(function()&#123;</div><div class="line">                     method.call(context);</div><div class="line">                 &#125;, 1000);</div><div class="line">             &#125;</div><div class="line"></div><div class="line">             function myAjax() &#123;</div><div class="line">                 if(checkbox.prop(&quot;checked&quot;)) &#123;</div><div class="line">                     isFoucs = -1;</div><div class="line">                 &#125;else &#123;</div><div class="line">                     isFoucs = &apos;&apos;;</div><div class="line">                 &#125;</div><div class="line">                 options = &#123;</div><div class="line">                     focusId: id,</div><div class="line">                     tag: 2,</div><div class="line">                     focus: isFocus</div><div class="line">                 &#125;;</div><div class="line">                 console.log(options)</div><div class="line">                 function returnDate(json) &#123;</div><div class="line">                     console.log(json)</div><div class="line">                 &#125;</div><div class="line">                 Utils.getAjax(&quot;POST&quot;, CONFIG.API.editFocus, options, returnDate);</div><div class="line">             &#125;</div><div class="line">             throttle2(myAjax,this)</div><div class="line">         &#125;);</div></pre></td></tr></table></figure>
-<p>一直不明白为什么。。。</p>
-<p>最后把throttle函数修改为以下就成功了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(context.tId);</div><div class="line">    context.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>仔细分析，原来是每次 click 的时候，都重新创建了函数 ‘method’（本例中的 myAjax 函数），那么throttle在内部永远保存着一个定时器不会被清除。才会出现每次点击都会执行method的现象。</p>
-<p><strong>结论：</strong><br>1、 创建函数的方式<br>　　1.1 function fn(){}  函数声明<br>　　1.2 var fn = function(){} 函数表达式<br>2、 函数名是一个指向函数对象的指针，每创建一个函数，都会在内存重新分配一个地址，即使拥有相同的函数名，他们也不是同一个函数。<br>3、 JavaScript 中，没有函数重载。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -208,128 +176,60 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://CaptainLiao.github.io/2017/04/22/函数创建和重载/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/04/22/快速搭建微信小程序开发环境/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2017/04/22/事件代理和事件委托/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          事件代理/事件委托（event delegation）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/04/22/快速搭建微信小程序开发环境/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">快速搭建微信小程序开发环境</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="函数创建和重载" data-title="函数的创建和重载" data-url="http://CaptainLiao.github.io/2017/04/22/函数创建和重载/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://CaptainLiao.github.io/2017/04/22/函数创建和重载/", 
-    sourceId: "函数创建和重载",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/22/快速搭建微信小程序开发环境/">快速搭建微信小程序开发环境</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2017/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -353,8 +253,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
