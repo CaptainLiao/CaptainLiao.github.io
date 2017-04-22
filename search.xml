@@ -3,7 +3,59 @@
   
     
     <entry>
-      <title></title>
+      <title><![CDATA[wxss引用外部CSS文件及iconfont]]></title>
+      <url>/2017/04/22/wxss%E5%BC%95%E7%94%A8%E5%A4%96%E9%83%A8CSS%E6%96%87%E4%BB%B6%E5%8F%8Aiconfont/</url>
+      <content type="html"><![CDATA[<p>小程序引入外部文件的方式是：@import “<em>/</em>.wxss”;</p>
+<p>因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;font-family: &quot;iconfont&quot;;</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767&apos;); /* IE9*/</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */</div><div class="line">  url(&apos;iconfont.woff?t=1485242349767&apos;) format(&apos;woff&apos;), /* chrome, firefox */</div><div class="line">  url(&apos;iconfont.ttf?t=1485242349767&apos;) format(&apos;truetype&apos;), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/</div><div class="line">  url(&apos;iconfont.svg?t=1485242349767#iconfont&apos;) format(&apos;svg&apos;); /* iOS 4.1- */</div><div class="line">&#125;</div><div class="line"></div><div class="line">.iconfont &#123;</div><div class="line">  font-family:&quot;iconfont&quot; !important;</div><div class="line">  font-size:16px;</div><div class="line">  font-style:normal;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为此段css样式是通用的，就把它放在了lib/style/font.wxss中，此时文件目录如下：</p>
+<p><img src="/img/引入外部css/1.png" alt=""></p>
+<p>通过@import 的方式引入到需要用到的文件里，但是并没有效果。</p>
+<p>原因：小程序的wxss文件font-face的url不接受http地址作为参数,可以接受base64,因此可以先将字体文件下载后,转换为base64，然后引用。</p>
+<p>解决方案如下：</p>
+<p>一、先到阿里巴巴矢量图标库(<a href="http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件" target="_blank" rel="external">http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件</a></p>
+<p><img src="/img/引入外部css/2.png" alt=""></p>
+<p>二、到这个平台<a href="https://transfonter.org/，把字体文件转化成base64格式" target="_blank" rel="external">https://transfonter.org/，把字体文件转化成base64格式</a></p>
+<p><img src="/img/引入外部css/3.png" alt=""></p>
+<p>三、在lib文件中引入</p>
+<p><img src="/img/引入外部css/4.png" alt=""></p>
+<p>四、在wxss加入字体</p>
+<p><img src="/img/引入外部css/5.png" alt=""></p>
+<p>五、显示效果</p>
+<p><img src="/img/引入外部css/6.png" alt=""></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 微信小程序 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[wxss引用外部CSS文件及iconfont]]></title>
+      <url>/2017/04/22/%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+      <content type="html"><![CDATA[<h2 id="事件代理-事件委托（event-delegation）"><a href="#事件代理-事件委托（event-delegation）" class="headerlink" title="事件代理/事件委托（event delegation）"></a>事件代理/事件委托（event delegation）</h2><p><strong>需求一：</strong>当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦…</p>
+<p><strong>需求二：</strong>在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…<br><a id="more"></a><br><strong>我们：</strong>怎么办呢？</p>
+<p><strong>事件委托：</strong>我可以！使用我能让你避免对特定的每个节点添加事件监听器。</p>
+<p><strong>我们：</strong>你到底是什么鬼？ </p>
+<p><strong>事件委托：</strong>我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原理，将事件监听器添加到特定节点的父元素上，我就会分析从子元素冒泡上来的事件，找到是哪个子元素的事件。</p>
+<p>举个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(parentsEle).click(function (e) &#123;</div><div class="line">    var e = e || window.event,</div><div class="line">        targetEle = e.target || e.srcElement,</div><div class="line">        _this = this;</div><div class="line">    switch (targetEle.className) &#123;</div><div class="line">        case &quot;font_r&quot;:</div><div class="line">            $(targetEle).fadeOut();</div><div class="line">            _this.siblings(&quot;.header&quot;).fadeIn();</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>明白了吗？</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[wxss引用外部CSS文件及iconfont]]></title>
       <url>/2017/04/22/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</url>
       <content type="html"><![CDATA[<h2 id="快速搭建微信小程序开发环境"><a href="#快速搭建微信小程序开发环境" class="headerlink" title="快速搭建微信小程序开发环境"></a>快速搭建微信小程序开发环境</h2><p>1.工具软件：</p>
 <p>注：本文介绍的工具软件已分享到百度云盘，直接下载并按照本文介绍安装即可。</p>
@@ -24,20 +76,11 @@
 ]]></content>
       
         
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/2017/04/22/%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
-      <content type="html"><![CDATA[<h2 id="事件代理-事件委托（event-delegation）"><a href="#事件代理-事件委托（event-delegation）" class="headerlink" title="事件代理/事件委托（event delegation）"></a>事件代理/事件委托（event delegation）</h2><p><strong>需求一：</strong>当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦…</p>
-<p><strong>需求二：</strong>在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…<br><a id="more"></a><br><strong>我们：</strong>怎么办呢？</p>
-<p><strong>事件委托：</strong>我可以！使用我能让你避免对特定的每个节点添加事件监听器。</p>
-<p><strong>我们：</strong>你到底是什么鬼？ </p>
-<p><strong>事件委托：</strong>我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原理，将事件监听器添加到特定节点的父元素上，我就会分析从子元素冒泡上来的事件，找到是哪个子元素的事件。</p>
-<p>举个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(parentsEle).click(function (e) &#123;</div><div class="line">    var e = e || window.event,</div><div class="line">        targetEle = e.target || e.srcElement,</div><div class="line">        _this = this;</div><div class="line">    switch (targetEle.className) &#123;</div><div class="line">        case &quot;font_r&quot;:</div><div class="line">            $(targetEle).fadeOut();</div><div class="line">            _this.siblings(&quot;.header&quot;).fadeIn();</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>明白了吗？</p>
-]]></content>
-      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
         
     </entry>
     

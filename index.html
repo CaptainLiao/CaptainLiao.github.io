@@ -137,16 +137,44 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-快速搭建微信小程序开发环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-wxss引用外部CSS文件及iconfont" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/wxss引用外部CSS文件及iconfont/">wxss引用外部CSS文件及iconfont</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/22/wxss引用外部CSS文件及iconfont/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="快速搭建微信小程序开发环境"><a href="#快速搭建微信小程序开发环境" class="headerlink" title="快速搭建微信小程序开发环境"></a>快速搭建微信小程序开发环境</h2><p>1.工具软件：</p>
-<p>注：本文介绍的工具软件已分享到百度云盘，直接下载并按照本文介绍安装即可。</p>
-        
-          <a class="article-more-a" href="/2017/04/22/快速搭建微信小程序开发环境/#more">more >></a>
-        
+        <p>小程序引入外部文件的方式是：@import “<em>/</em>.wxss”;</p>
+<p>因为业务需要，正在开发的小程序中需要使用iconfont，很容易想到了H5的引入方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;font-family: &quot;iconfont&quot;;</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767&apos;); /* IE9*/</div><div class="line">  src: url(&apos;iconfont.eot?t=1485242349767#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */</div><div class="line">  url(&apos;iconfont.woff?t=1485242349767&apos;) format(&apos;woff&apos;), /* chrome, firefox */</div><div class="line">  url(&apos;iconfont.ttf?t=1485242349767&apos;) format(&apos;truetype&apos;), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/</div><div class="line">  url(&apos;iconfont.svg?t=1485242349767#iconfont&apos;) format(&apos;svg&apos;); /* iOS 4.1- */</div><div class="line">&#125;</div><div class="line"></div><div class="line">.iconfont &#123;</div><div class="line">  font-family:&quot;iconfont&quot; !important;</div><div class="line">  font-size:16px;</div><div class="line">  font-style:normal;</div><div class="line">  -webkit-font-smoothing: antialiased;</div><div class="line">  -moz-osx-font-smoothing: grayscale;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为此段css样式是通用的，就把它放在了lib/style/font.wxss中，此时文件目录如下：</p>
+<p><img src="/img/引入外部css/1.png" alt=""></p>
+<p>通过@import 的方式引入到需要用到的文件里，但是并没有效果。</p>
+<p>原因：小程序的wxss文件font-face的url不接受http地址作为参数,可以接受base64,因此可以先将字体文件下载后,转换为base64，然后引用。</p>
+<p>解决方案如下：</p>
+<p>一、先到阿里巴巴矢量图标库(<a href="http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件" target="_blank" rel="external">http://iconfont.cn/)生成自己的字体图标，并下载下来，找到ttf格式文件</a></p>
+<p><img src="/img/引入外部css/2.png" alt=""></p>
+<p>二、到这个平台<a href="https://transfonter.org/，把字体文件转化成base64格式" target="_blank" rel="external">https://transfonter.org/，把字体文件转化成base64格式</a></p>
+<p><img src="/img/引入外部css/3.png" alt=""></p>
+<p>三、在lib文件中引入</p>
+<p><img src="/img/引入外部css/4.png" alt=""></p>
+<p>四、在wxss加入字体</p>
+<p><img src="/img/引入外部css/5.png" alt=""></p>
+<p>五、显示效果</p>
+<p><img src="/img/引入外部css/6.png" alt=""></p>
+
       
 
       
@@ -154,11 +182,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/22/快速搭建微信小程序开发环境/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/22/wxss引用外部CSS文件及iconfont/">展开全文 >></a>
         </p>
       
 
@@ -176,6 +215,21 @@
     <article id="post-事件代理和事件委托" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/事件代理和事件委托/">wxss引用外部CSS文件及iconfont</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/22/事件代理和事件委托/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="事件代理-事件委托（event-delegation）"><a href="#事件代理-事件委托（event-delegation）" class="headerlink" title="事件代理/事件委托（event delegation）"></a>事件代理/事件委托（event delegation）</h2><p><strong>需求一：</strong>当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦…</p>
@@ -190,11 +244,84 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/04/22/事件代理和事件委托/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-快速搭建微信小程序开发环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/快速搭建微信小程序开发环境/">wxss引用外部CSS文件及iconfont</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/22/快速搭建微信小程序开发环境/" class="archive-article-date">
+  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="快速搭建微信小程序开发环境"><a href="#快速搭建微信小程序开发环境" class="headerlink" title="快速搭建微信小程序开发环境"></a>快速搭建微信小程序开发环境</h2><p>1.工具软件：</p>
+<p>注：本文介绍的工具软件已分享到百度云盘，直接下载并按照本文介绍安装即可。</p>
+        
+          <a class="article-more-a" href="/2017/04/22/快速搭建微信小程序开发环境/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/22/快速搭建微信小程序开发环境/">展开全文 >></a>
         </p>
       
 
