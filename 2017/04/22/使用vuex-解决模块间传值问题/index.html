@@ -17,7 +17,7 @@
 <meta property="og:description" content="二月的第四个周末，在家。受寒流的影响，深圳天气持续冰冻了好几天，天冷人就变得懒动，迷迷糊糊睡到了快十点，终于在饥饿的催促下起床。 和妹子吃完粥后，百无聊赖。透过窗户，发现太阳依旧没有露头的打算，我们也就失去了外出的兴致。 在看电影、打Dota、撸代码间来回，犹豫不决，终于还是下决心继续学习VUE。仿照 conde.js 官网写的一个demo，目前已经基本可用，但始终缺少登录页，没有用户权限管理，于">
 <meta property="og:image" content="http://captainliao.github.io/img/2.png">
 <meta property="og:image" content="http://captainliao.github.io/img/3.png">
-<meta property="og:updated_time" content="2017-04-22T07:56:54.106Z">
+<meta property="og:updated_time" content="2017-04-22T08:02:05.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用vuex 解决模块间传值问题">
 <meta name="twitter:description" content="二月的第四个周末，在家。受寒流的影响，深圳天气持续冰冻了好几天，天冷人就变得懒动，迷迷糊糊睡到了快十点，终于在饥饿的催促下起床。 和妹子吃完粥后，百无聊赖。透过窗户，发现太阳依旧没有露头的打算，我们也就失去了外出的兴致。 在看电影、打Dota、撸代码间来回，犹豫不决，终于还是下决心继续学习VUE。仿照 conde.js 官网写的一个demo，目前已经基本可用，但始终缺少登录页，没有用户权限管理，于">
@@ -165,7 +165,7 @@
       
         <p>二月的第四个周末，在家。受寒流的影响，深圳天气持续冰冻了好几天，天冷人就变得懒动，迷迷糊糊睡到了快十点，终于在饥饿的催促下起床。</p>
 <p>和妹子吃完粥后，百无聊赖。透过窗户，发现太阳依旧没有露头的打算，我们也就失去了外出的兴致。</p>
-<p>在看电影、打Dota、撸代码间来回，犹豫不决，终于还是下决心继续学习VUE。<br>仿照 conde.js 官网写的一个demo，目前已经基本可用，但始终缺少登录页，没有用户权限管理，于是开撸……<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;login&quot;&gt;</div><div class="line">    &lt;c-header&gt;&lt;/c-header&gt;</div><div class="line">    &lt;c-form&gt;&lt;/c-form&gt;</div><div class="line">    &lt;p class=&quot;content-block&quot;&gt;&lt;a href=&quot;javascript:;&quot; @click=showState class=&quot;button button-fill button-success&quot;&gt;登录&lt;/a&gt;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure></p>
+<p>在看电影、打Dota、撸代码间来回，犹豫不决，终于还是下决心继续学习VUE。<br>仿照 conde.js 官网写的一个demo，目前已经基本可用，但始终缺少登录页，没有用户权限管理，于是开撸……<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;login&quot;&gt;</div><div class="line">    &lt;c-header&gt;&lt;/c-header&gt;</div><div class="line">    &lt;c-form&gt;&lt;/c-form&gt;</div><div class="line">    &lt;p class=&quot;content-block&quot;&gt;&lt;a href=&quot;javascript:;&quot; @click=showState class=&quot;button button-fill button-success&quot;&gt;登录&lt;/a&gt;&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure></p>
 <p>外观大概是这样的：</p>
 <p><img src="/img/2.png" alt=""></p>
 <p>两个输入项通过 c-form 组件导入</p>
