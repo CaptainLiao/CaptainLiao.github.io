@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://CaptainLiao.github.io">
-  <title>Hello World | Fayin</title>
+  <title>Fayin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="##事件代理/事件委托（event delegation） 需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件… 我们：怎么办呢？ 事件委托：我可以！使用我能让你避免对特定的每个节点添加事件监听器。 我们：你到底是什么鬼？  事件委托：我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/hello-world/index.html">
+<meta property="og:title" content="Fayin">
+<meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/事件代理和事件委托/index.html">
 <meta property="og:site_name" content="Fayin">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2017-04-22T03:38:17.692Z">
+<meta property="og:description" content="##事件代理/事件委托（event delegation） 需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件… 我们：怎么办呢？ 事件委托：我可以！使用我能让你避免对特定的每个节点添加事件监听器。 我们：你到底是什么鬼？  事件委托：我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原">
+<meta property="og:updated_time" content="2017-04-22T07:25:03.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="Fayin">
+<meta name="twitter:description" content="##事件代理/事件委托（event delegation） 需求一：当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦… 需求二：在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件… 我们：怎么办呢？ 事件委托：我可以！使用我能让你避免对特定的每个节点添加事件监听器。 我们：你到底是什么鬼？  事件委托：我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原">
   
     <link rel="alternative" href="/atom.xml" title="Fayin" type="application/atom+xml">
   
@@ -140,36 +140,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-事件代理和事件委托" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-        
-        <a href="/2017/04/22/hello-world/" class="archive-article-date">
-  	<time datetime="2017-04-22T02:24:39.394Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>##事件代理/事件委托（event delegation）</p>
+<p><strong>需求一：</strong>当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦…</p>
+<p><strong>需求二：</strong>在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…</p>
+<p><strong>我们：</strong>怎么办呢？</p>
+<p><strong>事件委托：</strong>我可以！使用我能让你避免对特定的每个节点添加事件监听器。</p>
+<p><strong>我们：</strong>你到底是什么鬼？ </p>
+<p><strong>事件委托：</strong>我又叫事件代理，说白了就是利用浏览器事件捕获和冒泡的原理，将事件监听器添加到特定节点的父元素上，我就会分析从子元素冒泡上来的事件，找到是哪个子元素的事件。</p>
+<p>举个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(parentsEle).click(function (e) &#123;</div><div class="line">    var e = e || window.event,</div><div class="line">        targetEle = e.target || e.srcElement,</div><div class="line">        _this = this;</div><div class="line">    switch (targetEle.className) &#123;</div><div class="line">        case &quot;font_r&quot;:</div><div class="line">            $(targetEle).fadeOut();</div><div class="line">            _this.siblings(&quot;.header&quot;).fadeIn();</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>明白了吗？</p>
 
       
 
@@ -249,7 +233,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://CaptainLiao.github.io/2017/04/22/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://CaptainLiao.github.io/2017/04/22/事件代理和事件委托/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,8 +247,17 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/04/22/函数创建和重载/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="/2017/04/22/函数创建和重载/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/04/22/快速搭建微信小程序开发环境/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
@@ -278,7 +271,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://CaptainLiao.github.io/2017/04/22/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="事件代理和事件委托" data-title="" data-url="http://CaptainLiao.github.io/2017/04/22/事件代理和事件委托/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -301,8 +294,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://CaptainLiao.github.io/2017/04/22/hello-world/", 
-    sourceId: "hello-world",
+    url: "http://CaptainLiao.github.io/2017/04/22/事件代理和事件委托/", 
+    sourceId: "事件代理和事件委托",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

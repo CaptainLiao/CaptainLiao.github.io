@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://CaptainLiao.github.io">
-  <title>Hello World | Fayin</title>
+  <title>Fayin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。 123456function throttle2(method, context) &amp;#123;    clearTimeout(method.tId);    method.tId = setTimeout(functi">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/hello-world/index.html">
+<meta property="og:title" content="Fayin">
+<meta property="og:url" content="http://CaptainLiao.github.io/2017/04/22/函数创建和重载/index.html">
 <meta property="og:site_name" content="Fayin">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2017-04-22T03:38:17.692Z">
+<meta property="og:description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。 123456function throttle2(method, context) &amp;#123;    clearTimeout(method.tId);    method.tId = setTimeout(functi">
+<meta property="og:updated_time" content="2017-04-22T07:22:24.628Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="Fayin">
+<meta name="twitter:description" content="今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。 123456function throttle2(method, context) &amp;#123;    clearTimeout(method.tId);    method.tId = setTimeout(functi">
   
     <link rel="alternative" href="/atom.xml" title="Fayin" type="application/atom+xml">
   
@@ -140,36 +140,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-函数创建和重载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-        
-        <a href="/2017/04/22/hello-world/" class="archive-article-date">
-  	<time datetime="2017-04-22T02:24:39.394Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(method.tId);</div><div class="line">    method.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但在实际应用中，并不能达到想要效果–每次点击都会发送一次数据，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$(&quot;.daili_act_lia&quot;).click(function () &#123;</div><div class="line">    var checkbox = $(&quot;#s11&quot;),</div><div class="line">      options = &#123;&#125;,</div><div class="line">      isFocus = &apos;&apos;,</div><div class="line">         id = $(this).attr(&quot;data-id&quot;);</div><div class="line"></div><div class="line">             function throttle2(method, context) &#123;</div><div class="line">                 clearTimeout(method.tId);</div><div class="line">                 method.tId = setTimeout(function()&#123;</div><div class="line">                     method.call(context);</div><div class="line">                 &#125;, 1000);</div><div class="line">             &#125;</div><div class="line"></div><div class="line">             function myAjax() &#123;</div><div class="line">                 if(checkbox.prop(&quot;checked&quot;)) &#123;</div><div class="line">                     isFoucs = -1;</div><div class="line">                 &#125;else &#123;</div><div class="line">                     isFoucs = &apos;&apos;;</div><div class="line">                 &#125;</div><div class="line">                 options = &#123;</div><div class="line">                     focusId: id,</div><div class="line">                     tag: 2,</div><div class="line">                     focus: isFocus</div><div class="line">                 &#125;;</div><div class="line">                 console.log(options)</div><div class="line">                 function returnDate(json) &#123;</div><div class="line">                     console.log(json)</div><div class="line">                 &#125;</div><div class="line">                 Utils.getAjax(&quot;POST&quot;, CONFIG.API.editFocus, options, returnDate);</div><div class="line">             &#125;</div><div class="line">             throttle2(myAjax,this)</div><div class="line">         &#125;);</div></pre></td></tr></table></figure>
+<p>一直不明白为什么。。。</p>
+<p>最后把throttle函数修改为以下就成功了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(context.tId);</div><div class="line">    context.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>仔细分析，原来是每次 click 的时候，都重新创建了函数 ‘method’（本例中的 myAjax 函数），那么throttle在内部永远保存着一个定时器不会被清除。才会出现每次点击都会执行method的现象。</p>
+<p><strong>结论：</strong><br>1、 创建函数的方式<br>　　1.1 function fn(){}  函数声明<br>　　1.2 var fn = function(){} 函数表达式<br>2、 函数名是一个指向函数对象的指针，每创建一个函数，都会在内存重新分配一个地址，即使拥有相同的函数名，他们也不是同一个函数。<br>3、 JavaScript 中，没有函数重载。</p>
 
       
 
@@ -249,7 +233,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://CaptainLiao.github.io/2017/04/22/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://CaptainLiao.github.io/2017/04/22/函数创建和重载/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,8 +247,17 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/04/22/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
-    <a href="/2017/04/22/函数创建和重载/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/04/22/事件代理和事件委托/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
@@ -278,7 +271,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://CaptainLiao.github.io/2017/04/22/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="函数创建和重载" data-title="" data-url="http://CaptainLiao.github.io/2017/04/22/函数创建和重载/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -301,8 +294,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://CaptainLiao.github.io/2017/04/22/hello-world/", 
-    sourceId: "hello-world",
+    url: "http://CaptainLiao.github.io/2017/04/22/函数创建和重载/", 
+    sourceId: "函数创建和重载",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
