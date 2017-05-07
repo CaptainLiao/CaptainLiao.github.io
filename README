@@ -8,3 +8,7 @@ hexo n == hexo new
 执行命令：
 hexo g
 hexo d
+
+或
+
+hexo clean && hexo g && hexo d

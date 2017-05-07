@@ -3,9 +3,10 @@
   
     
     <entry>
-      <title></title>
+      <title><![CDATA[一步一步实现一个前端模板引擎]]></title>
       <url>/2017/05/07/%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/</url>
-      <content type="html"><![CDATA[<p>不要重复发明轮子，这是我听到最多的一句话，而且现在有很多优秀的模板引擎：handlebar、ejs、artTemplate…那么为什么还要自己实现一个呢？原因不外乎有两个，<br>一来是手痒，二来是满足一点小小的虚荣心：看，模板引擎我也会，简单！感觉非常优（zhuang）秀（bi）。</p>
+      <content type="html"><![CDATA[<p>不要重复发明轮子，这是我听到最多的一句话，而且现在有很多优秀的模板引擎：handlebar、ejs、artTemplate…那么为什么还要自己实现一个呢？原因不外乎有两个，一来是手痒，二来是满足一点小小的虚荣心：看，模板引擎我也会，简单！感觉非常优（zhuang）秀（bi）。</p>
+<a id="more"></a>
 <p>既然是自己动手，那么网上的教程肯定先放一边，突然有点耗子啃南瓜——无从下口的感觉…</p>
 <h3 id="一切从需求出发"><a href="#一切从需求出发" class="headerlink" title="一切从需求出发"></a>一切从需求出发</h3><p>从后台拿到数据，拼接成字符串放在页面中，这是我们初入前端时常要做的工作，特别是遇到结构稍微复杂的页面，光拼接字符串都能搞得你一脸懵逼、二脸懵逼，终于<br>有一天遇到模板引擎，一边惊为天人，一边暗自骂自己傻逼。那么，今天我们动手实现的模板引擎，就从那最初的那一天开始吧！</p>
 <h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><p>话说有天接到需求，需要将一组JSON数据，渲染到页面中。如下所示：</p>
@@ -37,6 +38,12 @@
 <p>……</p>
 ]]></content>
       
+        
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
         
     </entry>
     
@@ -204,28 +211,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[函数的创建和重载]]></title>
-      <url>/2017/04/22/%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%92%8C%E9%87%8D%E8%BD%BD/</url>
-      <content type="html"><![CDATA[<p>今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(method.tId);</div><div class="line">    method.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>但在实际应用中，并不能达到想要效果–每次点击都会发送一次数据，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$(&quot;.daili_act_lia&quot;).click(function () &#123;</div><div class="line">    var checkbox = $(&quot;#s11&quot;),</div><div class="line">      options = &#123;&#125;,</div><div class="line">      isFocus = &apos;&apos;,</div><div class="line">         id = $(this).attr(&quot;data-id&quot;);</div><div class="line"></div><div class="line">             function throttle2(method, context) &#123;</div><div class="line">                 clearTimeout(method.tId);</div><div class="line">                 method.tId = setTimeout(function()&#123;</div><div class="line">                     method.call(context);</div><div class="line">                 &#125;, 1000);</div><div class="line">             &#125;</div><div class="line"></div><div class="line">             function myAjax() &#123;</div><div class="line">                 if(checkbox.prop(&quot;checked&quot;)) &#123;</div><div class="line">                     isFoucs = -1;</div><div class="line">                 &#125;else &#123;</div><div class="line">                     isFoucs = &apos;&apos;;</div><div class="line">                 &#125;</div><div class="line">                 options = &#123;</div><div class="line">                     focusId: id,</div><div class="line">                     tag: 2,</div><div class="line">                     focus: isFocus</div><div class="line">                 &#125;;</div><div class="line">                 console.log(options)</div><div class="line">                 function returnDate(json) &#123;</div><div class="line">                     console.log(json)</div><div class="line">                 &#125;</div><div class="line">                 Utils.getAjax(&quot;POST&quot;, CONFIG.API.editFocus, options, returnDate);</div><div class="line">             &#125;</div><div class="line">             throttle2(myAjax,this)</div><div class="line">         &#125;);</div></pre></td></tr></table></figure>
-<p>一直不明白为什么。。。</p>
-<p>最后把throttle函数修改为以下就成功了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(context.tId);</div><div class="line">    context.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>仔细分析，原来是每次 click 的时候，都重新创建了函数 ‘method’（本例中的 myAjax 函数），那么throttle在内部永远保存着一个定时器不会被清除。才会出现每次点击都会执行method的现象。</p>
-<p><strong>结论：</strong><br>1、 创建函数的方式<br>　　1.1 function fn(){}  函数声明<br>　　1.2 var fn = function(){} 函数表达式<br>2、 函数名是一个指向函数对象的指针，每创建一个函数，都会在内存重新分配一个地址，即使拥有相同的函数名，他们也不是同一个函数。<br>3、 JavaScript 中，没有函数重载。</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> javascript </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[快速搭建微信小程序开发环境]]></title>
       <url>/2017/04/22/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</url>
       <content type="html"><![CDATA[<p>1.工具软件：</p>
@@ -244,6 +229,28 @@
 <p>如果按照教程安装扔出现上述问题，建议将原0.7和0.9版本卸载干净后再重新安装，记得使用替换以下文件：<br>链接: <a href="https://pan.baidu.com/s/1pLzY7yV" target="_blank" rel="external">https://pan.baidu.com/s/1pLzY7yV</a> 密码: tkwb<br>C:\Program Files (x86)\Tencent\微信web开发者工具\package.nw\app\dist\weapp\appservice\asdebug.js<br>C:\Program Files (x86)\Tencent\微信web开发者工具\package.nw\app\dist\components\create\createstep.js<br>C:\Program Files (x86)\Tencent\微信web开发者工具\package.nw\app\dist\stroes\projectStores.js</p>
 <p>参考链接：</p>
 <p>“小程序”破解IDE + Demo：<a href="https://github.com/gavinkwoe/weapp-ide-crack.git" target="_blank" rel="external">https://github.com/gavinkwoe/weapp-ide-crack.git</a><br>资源汇总：<a href="https://github.com/Aufree/awesome-wechat-weapp" target="_blank" rel="external">https://github.com/Aufree/awesome-wechat-weapp</a><br>官方简易教程·MINA：<a href="http://wxopen.notedown.cn/" target="_blank" rel="external">http://wxopen.notedown.cn/</a><br>Hello小程序 - 非官方：<a href="http://www.helloxcx.com" target="_blank" rel="external">http://www.helloxcx.com</a><br>微信应用号开发教程：<a href="https://my.oschina.net/wwnick/blog/750055" target="_blank" rel="external">https://my.oschina.net/wwnick/blog/750055</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[函数的创建和重载]]></title>
+      <url>/2017/04/22/%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%92%8C%E9%87%8D%E8%BD%BD/</url>
+      <content type="html"><![CDATA[<p>今天做一个关注/取消的功能，由于需要向后台发送请求，想通过控制用户点击发送的频次减少不必要的请求，即在一定时间内，用户点击多次但只发送一次数据，自然而然想到了使用【函数节流】。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(method.tId);</div><div class="line">    method.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但在实际应用中，并不能达到想要效果–每次点击都会发送一次数据，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$(&quot;.daili_act_lia&quot;).click(function () &#123;</div><div class="line">    var checkbox = $(&quot;#s11&quot;),</div><div class="line">      options = &#123;&#125;,</div><div class="line">      isFocus = &apos;&apos;,</div><div class="line">         id = $(this).attr(&quot;data-id&quot;);</div><div class="line"></div><div class="line">             function throttle2(method, context) &#123;</div><div class="line">                 clearTimeout(method.tId);</div><div class="line">                 method.tId = setTimeout(function()&#123;</div><div class="line">                     method.call(context);</div><div class="line">                 &#125;, 1000);</div><div class="line">             &#125;</div><div class="line"></div><div class="line">             function myAjax() &#123;</div><div class="line">                 if(checkbox.prop(&quot;checked&quot;)) &#123;</div><div class="line">                     isFoucs = -1;</div><div class="line">                 &#125;else &#123;</div><div class="line">                     isFoucs = &apos;&apos;;</div><div class="line">                 &#125;</div><div class="line">                 options = &#123;</div><div class="line">                     focusId: id,</div><div class="line">                     tag: 2,</div><div class="line">                     focus: isFocus</div><div class="line">                 &#125;;</div><div class="line">                 console.log(options)</div><div class="line">                 function returnDate(json) &#123;</div><div class="line">                     console.log(json)</div><div class="line">                 &#125;</div><div class="line">                 Utils.getAjax(&quot;POST&quot;, CONFIG.API.editFocus, options, returnDate);</div><div class="line">             &#125;</div><div class="line">             throttle2(myAjax,this)</div><div class="line">         &#125;);</div></pre></td></tr></table></figure>
+<p>一直不明白为什么。。。</p>
+<p>最后把throttle函数修改为以下就成功了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle2(method, context) &#123;</div><div class="line">    clearTimeout(context.tId);</div><div class="line">    context.tId = setTimeout(function()&#123;</div><div class="line">        method.call(context);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>仔细分析，原来是每次 click 的时候，都重新创建了函数 ‘method’（本例中的 myAjax 函数），那么throttle在内部永远保存着一个定时器不会被清除。才会出现每次点击都会执行method的现象。</p>
+<p><strong>结论：</strong><br>1、 创建函数的方式<br>　　1.1 function fn(){}  函数声明<br>　　1.2 var fn = function(){} 函数表达式<br>2、 函数名是一个指向函数对象的指针，每创建一个函数，都会在内存重新分配一个地址，即使拥有相同的函数名，他们也不是同一个函数。<br>3、 JavaScript 中，没有函数重载。</p>
 ]]></content>
       
         
