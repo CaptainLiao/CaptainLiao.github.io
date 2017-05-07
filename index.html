@@ -137,6 +137,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-一步一步实现一个前端模板引擎" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不要重复发明轮子，这是我听到最多的一句话，而且现在有很多优秀的模板引擎：handlebar、ejs、artTemplate…那么为什么还要自己实现一个呢？原因不外乎有两个，<br>一来是手痒，二来是满足一点小小的虚荣心：看，模板引擎我也会，简单！感觉非常优（zhuang）秀（bi）。</p>
+<p>既然是自己动手，那么网上的教程肯定先放一边，突然有点耗子啃南瓜——无从下口的感觉…</p>
+<h3 id="一切从需求出发"><a href="#一切从需求出发" class="headerlink" title="一切从需求出发"></a>一切从需求出发</h3><p>从后台拿到数据，拼接成字符串放在页面中，这是我们初入前端时常要做的工作，特别是遇到结构稍微复杂的页面，光拼接字符串都能搞得你一脸懵逼、二脸懵逼，终于<br>有一天遇到模板引擎，一边惊为天人，一边暗自骂自己傻逼。那么，今天我们动手实现的模板引擎，就从那最初的那一天开始吧！</p>
+<h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><p>话说有天接到需求，需要将一组JSON数据，渲染到页面中。如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var data = [</div><div class="line">    &#123; text: &apos;text1&apos; ,status:&apos;done&apos; &#125;,</div><div class="line">    &#123; text: &apos;text2&apos; ,status:&apos;pending&apos; &#125;</div><div class="line">];</div><div class="line"></div><div class="line">var tpl = &apos;&lt;ul&gt;&apos;+</div><div class="line">    &apos;&lt;%for(var i = 0, len = data.length; i &lt; len; i++) &#123;%&gt;&apos;+</div><div class="line">    &apos;&lt;li class=&quot;&lt;%= data[i].status%&gt;&quot;&gt;&lt;span&gt;&lt;%= data[i].text%&gt;&lt;/span&gt;&lt;/li&gt; &apos;+</div><div class="line">    &apos;&lt;%&#125;%&gt;&apos;+</div><div class="line">    &apos;&lt;/ul&gt;&apos;;</div></pre></td></tr></table></figure>
+<h4 id="最初的渲染函数"><a href="#最初的渲染函数" class="headerlink" title="最初的渲染函数"></a>最初的渲染函数</h4><p>机智如我自然想到用函数来循环。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var render = function(data) &#123;</div><div class="line">    var tmp = &apos;&apos;;</div><div class="line">    tmp += &apos;&lt;ul&gt;&apos;;</div><div class="line">    for(var i = 0, len = data.length; i &lt; len; i++) &#123;</div><div class="line">        tmp += &apos;&lt;li class=&quot;&apos;+ data[i].status +&apos;&quot;&gt;&apos;+data[i].text+&apos;&lt;/li&gt;&apos;;</div><div class="line">    &#125;</div><div class="line">    tmp += &apos;&lt;/ul&gt;&apos;;</div><div class="line">    return tmp;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>目前来讲，我们返回了渲染好的字符串，而且看来工作的很顺利。但如果将字符串增加点内容，这个函数就GG思密达了。由此看来，我们需要把字符串模板单独提取出来，然后再<br>进行数据渲染。</p>
+<h3 id="牛B的Function"><a href="#牛B的Function" class="headerlink" title="牛B的Function"></a>牛B的Function</h3><p>我们用的最多的就是 function 关键字了，但对于 function 的爸爸 Function 却有点陌生，那么 Function 究竟哪里流弊呢？红宝石书不是建议我们不要用 Function吗？<br>其实，在JS中，但我们使用 function 声明函数的时候，JS会自动调用 Function 来生成实例。并且，Function 为我们提供了更强大的武器——动态函数。</p>
+<blockquote>
+<p>  语法<br><code>var function_name = new Function(arg1, arg2, ..., argN, function_body)</code></p>
+</blockquote>
+<p>等同于</p>
+<p><code>var function_name = function(arg1,..., argN) {function_body}</code></p>
+<p>于是，我们就有了一把强力的武器，将动态的字符串，放在动态的函数中执行了。</p>
+<h3 id="提取字符串构造函数体"><a href="#提取字符串构造函数体" class="headerlink" title="提取字符串构造函数体"></a>提取字符串构造函数体</h3><p>有了前面的知识基础，这一步，我们就要把 tpl 中的字符串，变成 render 的函数体。这就需要另一把武器——正则表达式。利用它，来找到需要渲染数据的位置。</p>
+<p><code>var reg = /&lt;%([\s\S]+?)%&gt;/g</code></p>
+<p>然后，通过 replace 方法替换 reg 找到的位置，构造成函数体！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">var template = function(tpl) &#123;</div><div class="line">    var reg = /&lt;%([\s\S]+?)%&gt;/g;</div><div class="line">    // index 用来记录替换的位置</div><div class="line">    var index = 0;</div><div class="line">    // 需要构造的函数体（一步一步和上面的render函数对比）</div><div class="line">    var func_body = &quot;var tmp = &apos;&apos;;&quot;;</div><div class="line">    func_body += &quot;tmp += &apos;&quot;;</div><div class="line"></div><div class="line">    tpl.replace(reg, function(match, val, offset, str)&#123;</div><div class="line">        // 每一次匹配到后，截取当前匹配位置和上一次匹配完成后位置之间的字符串</div><div class="line">        func_body += tpl.substring(index, offset);</div><div class="line"></div><div class="line">        // 根据 %= 判断如何进行拼接函数体</div><div class="line">        if(match.indexOf(&apos;%=&apos;) &lt; 0) &#123;</div><div class="line">            func_body +=&quot;&apos;;&quot; + val + &quot;;tmp += &apos;&quot;;</div><div class="line">        &#125; else &#123;</div><div class="line">            func_body += &quot;&apos; + &quot; + val.replace(&apos;=&apos;, &apos;&apos;).trim() + &quot;+&apos;&quot;;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // 完成一次match，改变index 的值</div><div class="line">        index = offset + match.length;</div><div class="line">        return index;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    // 完成所有匹配后，将剩下的字符串加入</div><div class="line">    func_body += tpl.substring(index);</div><div class="line">    // 返回 tmp</div><div class="line">    func_body += &quot;&apos;;return tmp;&quot;;</div><div class="line">    return func_body;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>现在，只要我们调用 template 函数，就会返回如 render 的函数体类似的字符串。要使template 函数返回的字符串运行起来，就要用到 Function 了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var tmpEngine = function (tpl, data) &#123;</div><div class="line">    // 返回字符串函数体</div><div class="line">    var func_body = template(tpl);</div><div class="line">    // 通过 Function 运行</div><div class="line">    return new Function(&apos;data&apos;, func_body).call(null, data);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>于是，我们调用 tmpEngine， 就可以得到经过数据渲染后的字符串了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var m = render(tpl2, data2);</div><div class="line"></div><div class="line">console.log(&apos;m:&apos; +m);</div><div class="line"></div><div class="line">// m: &lt;ul&gt;&lt;li class=&quot;done&quot;&gt;&lt;span&gt;text1&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;pending&quot;&gt;&lt;span&gt;text2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>至此，我们的模板引擎的功能层面已经完成，可以愉快的玩耍了。但是！还有很多优化工作等待着推进，这里罗列几条，周末再战：</p>
+<ul>
+<li>特殊字符转义，业务可能需要输出html代码，减少XSS攻击</li>
+<li>数据为空时的处理</li>
+<li>性能</li>
+</ul>
+<p>……</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/07/一步一步实现一个前端模板引擎/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-2017-4-22/gulp 搭建个人工作流：文件注入、热启动、跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -431,68 +493,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/04/22/wxss引用外部CSS文件及iconfont/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-事件代理和事件委托" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/22/事件代理和事件委托/">事件代理/事件委托（event delegation）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/22/事件代理和事件委托/" class="archive-article-date">
-  	<time datetime="2017-04-22T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>需求一：</strong>当一个div内部有多个事件发生，给每个元素逐个添加事件十分麻烦…</p>
-<p><strong>需求二：</strong>在项目中我们常常需要动态的添加元素，不可避免的需要为那些未来添加的元素增加事件…<br>
-        
-          <a class="article-more-a" href="/2017/04/22/事件代理和事件委托/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/22/事件代理和事件委托/">展开全文 >></a>
         </p>
       
 

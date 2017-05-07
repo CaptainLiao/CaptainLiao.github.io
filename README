@@ -1,0 +1,10 @@
+## HEXO 上传到github
+
+hexo g == hexo generate
+hexo d == hexo deploy
+hexo s == hexo server
+hexo n == hexo new
+
+执行命令：
+hexo g
+hexo d
